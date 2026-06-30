@@ -1,0 +1,30 @@
+class Solution:
+    def hasDuplicate(self, nums: List[int]) -> bool:
+        hashset = set()
+
+        for i in nums:
+            if i in hashset:
+                return True
+            hashset.add(i)
+        return False
+        # return len(set(nums)) < len(nums)
+
+
+# BRUTE FORCE: check all two pairs from the the list by implementing a nested loop 
+#              and return true if the pain is the same number, false if no such pair found.
+# TIME & SPACE COMPLEXITY: O(n^2) & O(1)
+
+# SORTING METHOD: Sorting the list since any duplicate elementes will appear next to each other
+#                and and then checking consecutive pairs for duplicates
+# TIME & SPACE COMPLEXITY: O(n log n) & O(1) or O(n)
+
+# HASH SET METHOD: Make a Python set that stores all the elements from the list nums 
+#                  and if the element is already in the set then it is a duplicate!
+#                  otherwise return false
+# TIME & SPACE COMPLEXITY: O(n) & O(n)
+
+# HASH SET LENGTH METHOD: Make a Python set that stores all the elements from the list nums 
+#                         and compare the lengths of the set and list.
+#                         if the length of set is smaller than the list return true since the duplicate is not added in the set
+#                         otherwise false
+# TIME & SPACE COMPLEXITY: O(n) & O(n)
